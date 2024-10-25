@@ -46,7 +46,7 @@ namespace minigame{
             if(Objetivo == null){
                 return;
             }
-            Objetivo.RecibirDmg(Lvl*20);
+            Objetivo.RecibirDmg(Lvl*20, this);
         }
         public void PerderSalud(int dmg){
             if(dmg <= 0){
@@ -97,11 +97,12 @@ namespace minigame{
                 //llamar perdida de salud            
             }
         }
-        public void RecibirDmg(int dmg){
+        public void RecibirDmg(int dmg, Jugadores Player){
             Console.WriteLine("\n !!! -> "+ Nombre+ " Recibio [" + dmg+"] de daño");
             Salud -= dmg;
             if(dmg >= Salud){
                 Console.WriteLine("\n !!! -> "+Nombre+ "Murio.");
+                Player.SubirEXP(this.Salud/2);
                 Salud =0;
                 Estado = false;
             }
