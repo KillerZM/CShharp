@@ -47,6 +47,7 @@ namespace Juego_futbol{
             //Dependiendo de su pocicion en el campo puede tener mas chance a anotar o menos.
             public void TiroGol(){
                 int prob = random.Next(1,10); //crea un numero aleatorio del 1 al 10
+                prob = new Random((int) DateTime.Now.Ticks & 0x0000FFFF).Next(1,10);
                 if(balon == false  || posX=="Defensa" || posX=="Portero"){
                     Console.WriteLine("\n\t !!! --> El jugador "+ nombre + " No cumple los requisitos para realizar un Tiro a porteria");
                     return;
