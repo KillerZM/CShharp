@@ -133,13 +133,13 @@ namespace Juego_futbol{
     public class Partido{
         public static void Main(){
             List<Jugador> jugadores = new List<Jugador>();
-            Jugador Portero = new Jugador("Iker",10,false,"Portero");
-            jugadores.Add(Portero); // Añadir el nuevo jugador a la lista
+            Jugador.Portero = new Jugador("Iker", 1, false, "Portero");
+            jugadores.Add(Jugador.Portero); // Añadir el nuevo jugador a la lista
 
             int opcion=0;
             
             //Creacion de jugadores
-            for(int i=0;i<10;i++){
+            for(int i=0;i<2;i++){
                 string Nom="";
                 int Num=0;
                 string PosI="";
@@ -155,17 +155,17 @@ namespace Juego_futbol{
                 jugadores.Add(nuevoJugador); // Añadir el nuevo jugador a la lista
             }
 
-            Console.WriteLine("Recuerda que el jugador"+ Portero.nombre+ " Siempre inicia con el balon");
+            Console.WriteLine("Recuerda que el jugador"+ Jugador.Portero.nombre+ " Siempre inicia con el balon");
 
             do{
                 Console.WriteLine("\n\n\t --Opciones del partido-- \n");
-                Console.WriteLine("1. Pasar Balon \n");
-                Console.WriteLine("2. Robar Balon \n");
-                Console.WriteLine("3. Posicion Balon \n");
-                Console.WriteLine("4. Tiro gol \n");
-                Console.WriteLine("5. Cambiar posicion \n");
-                Console.WriteLine("6. Mostrar estadisticas \n");
-                Console.WriteLine("7. Salir \n\n");
+                Console.WriteLine("1. Pasar Balon ");
+                Console.WriteLine("2. Robar Balon ");
+                Console.WriteLine("3. Posicion Balon ");
+                Console.WriteLine("4. Tiro gol ");
+                Console.WriteLine("5. Cambiar posicion ");
+                Console.WriteLine("6. Mostrar estadisticas ");
+                Console.WriteLine("7. Salir \n");
                 Console.WriteLine("Seleccione una opcion-> ");
                 opcion= Convert.ToInt32(Console.ReadLine());
                 string aux1="",aux2="";
@@ -214,7 +214,7 @@ namespace Juego_futbol{
                     }
                     case 3: {
                         //Aqui solo se usa el portero para llamar el metodo de balon
-                        bool uwu = Portero.Posicion_Balon();
+                        bool uwu = Jugador.Portero.Posicion_Balon();
                         Console.WriteLine("\n");
                         break;
                     }
@@ -270,11 +270,11 @@ namespace Juego_futbol{
                             Console.Write(mensaje);
                             for (int j = 0; j <= i; j++) {
                                 Console.Write(".");
-                                Thread.Sleep(500); // Pausa de 500 milisegundos
+                                Thread.Sleep(100); // Pausa de 500 milisegundos
                             }
                             if (i < 2) {
                                 Console.Write("\r"); // Retorno de carro para sobrescribir la línea
-                                Thread.Sleep(500);
+                                Thread.Sleep(100);
                             }
                         }
                         break;
