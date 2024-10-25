@@ -1,0 +1,15 @@
+/workspaces/CShharp/Futbol1/bin/Debug/net8.0/Futbol1
+/workspaces/CShharp/Futbol1/bin/Debug/net8.0/Futbol1.deps.json
+/workspaces/CShharp/Futbol1/bin/Debug/net8.0/Futbol1.runtimeconfig.json
+/workspaces/CShharp/Futbol1/bin/Debug/net8.0/Futbol1.dll
+/workspaces/CShharp/Futbol1/bin/Debug/net8.0/Futbol1.pdb
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.AssemblyInfoInputs.cache
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.AssemblyInfo.cs
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.sourcelink.json
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.dll
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/refint/Futbol1.dll
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.pdb
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/Futbol1.genruntimeconfig.cache
+/workspaces/CShharp/Futbol1/obj/Debug/net8.0/ref/Futbol1.dll

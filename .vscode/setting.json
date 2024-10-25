@@ -1,0 +1,7 @@
+{
+    "omnisharp.useGlobalMono": "always",
+    "omnisharp.path": "latest",
+    "omnisharp.projectLoadTimeout": 60,
+    "omnisharp.enableRoslynAnalyzers": true
+  }
+  
