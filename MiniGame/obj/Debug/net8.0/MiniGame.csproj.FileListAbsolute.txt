@@ -1,0 +1,15 @@
+/workspaces/CShharp/MiniGame/bin/Debug/net8.0/MiniGame
+/workspaces/CShharp/MiniGame/bin/Debug/net8.0/MiniGame.deps.json
+/workspaces/CShharp/MiniGame/bin/Debug/net8.0/MiniGame.runtimeconfig.json
+/workspaces/CShharp/MiniGame/bin/Debug/net8.0/MiniGame.dll
+/workspaces/CShharp/MiniGame/bin/Debug/net8.0/MiniGame.pdb
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.AssemblyInfoInputs.cache
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.AssemblyInfo.cs
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.sourcelink.json
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.dll
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/refint/MiniGame.dll
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.pdb
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/MiniGame.genruntimeconfig.cache
+/workspaces/CShharp/MiniGame/obj/Debug/net8.0/ref/MiniGame.dll
