@@ -1,0 +1,47 @@
+using System;
+
+public class Animal{
+    public string Name {get; set;}
+    public int Age {get; set;}
+    public virtual void MakeSound(){
+        Console.WriteLine("Animal Genérico");
+    }
+}
+public class Dog: Animal{
+    public string Breed{get; set;}
+    public override void MakeSound()
+    {
+        Console.WriteLine("Woof!");
+    }
+}
+
+public class Cat: Animal{
+    public bool Agresive{get; set;}
+    public string Breed{get; set;}
+    public override void MakeSound()
+    {
+        Console.WriteLine("Meow!");
+    }
+}
+
+class Untitled{
+    static void Main(string[] args){
+        Animal Pet1 = new Animal();
+        Pet1.Name = "Le Animaale Generique ";
+        Pet1.Age = 5;
+        Pet1.MakeSound();
+
+        Dog dog1 = new Dog();
+        dog1.Name = "Oso";
+        dog1.Age = 2;
+        dog1.Breed = "Akita";
+        dog1.MakeSound();
+
+        Cat Gato1 = new Cat();
+        Gato1.Name = "Kiki";
+        Gato1.Age= 2;
+        Gato1.Breed = "Neva Masquerade";
+        Gato1.Agresive = true; 
+        Gato1.MakeSound();
+    }
+}

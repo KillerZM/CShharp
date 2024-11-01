@@ -1,0 +1,36 @@
+﻿using System;
+
+public class A{
+    public int _value =10;
+    
+    public class B:A{
+        public int GetValue(){
+            return _value;
+        }
+    }
+
+    public void Method1(){
+        Console.WriteLine("Salida del método A");
+    }
+}
+
+public class C : A{
+    //Clase heredada de A
+    public int GetValue(){
+        return _value;
+    }
+}
+
+public class AccessExample{
+    public static void Main(string[] args) {
+
+        var b= new A.B();
+        var C= new C();
+        Console.WriteLine(b.GetValue());
+        b.Method1();
+
+        C.Method1();
+        Console.WriteLine(C.GetValue());
+
+    }
+}

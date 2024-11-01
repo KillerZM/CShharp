@@ -1,0 +1,15 @@
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.AssemblyInfoInputs.cache
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.AssemblyInfo.cs
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.sourcelink.json
+/workspaces/CShharp/SubClasesEjercicio/bin/Debug/net8.0/SubClasesEjercicio
+/workspaces/CShharp/SubClasesEjercicio/bin/Debug/net8.0/SubClasesEjercicio.deps.json
+/workspaces/CShharp/SubClasesEjercicio/bin/Debug/net8.0/SubClasesEjercicio.runtimeconfig.json
+/workspaces/CShharp/SubClasesEjercicio/bin/Debug/net8.0/SubClasesEjercicio.dll
+/workspaces/CShharp/SubClasesEjercicio/bin/Debug/net8.0/SubClasesEjercicio.pdb
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.dll
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/refint/SubClasesEjercicio.dll
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.pdb
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/SubClasesEjercicio.genruntimeconfig.cache
+/workspaces/CShharp/SubClasesEjercicio/obj/Debug/net8.0/ref/SubClasesEjercicio.dll
