@@ -68,21 +68,13 @@ namespace minigame{
         public int Salud;
         public int Damage;
         public bool Estado;
-
-        public Monsters(string Tipo){
-            if(Tipo=="Golem"){
-                Nombre = "Golem";
-                Salud = 100;
-                Damage = 30;
-            }else if(Tipo=="Lobo"){
-                Nombre = "Lobo";
-                Salud = 50;
-                Damage = 50;
-            }
-            Estado = true;
-        }
         //Metodos
         public void Attack(Jugadores Player){
+            if(Estado !=true){
+                Console.WriteLine($"\n !!! -> Este monstuo ya está muerto. ({Nombre})");
+                return;
+            }
+
             if(Player==null){
                 Console.WriteLine("\n !!! -> No existe el jugador objetivo.");
                 return;
@@ -98,6 +90,11 @@ namespace minigame{
             }
         }
         public void RecibirDmg(int dmg, Jugadores Player){
+            if(Estado !=true){
+                Console.WriteLine($"\n !!! -> Este monstuo ya está muerto. ({Nombre})");
+                return;
+            }
+
             Console.WriteLine("\n !!! -> "+ Nombre+ " Recibio [" + dmg+"] de daño");
             if(dmg >= Salud){
                 Console.WriteLine("\n !!! -> "+Nombre+ "Murio.");
@@ -110,21 +107,74 @@ namespace minigame{
             }
         }
     }
+
+    public class Lobo : Monsters{
+        public Lobo (string Name){
+                Nombre = Name;
+                Salud = 40;
+                Damage = 40;
+            
+            Estado = true;
+        }
+    }
+
+    public class Golem : Monsters{
+        public Golem (string Name){
+                Nombre = Name;
+                Salud = 80;
+                Damage = 20;
+            
+            Estado = true;
+        }
+    }
+
+    public class Dragon : Monsters{
+        public Dragon(string Name){
+            Nombre = Name;
+            Salud = 180;
+            Damage = 50;
+        }
+
+        public void AlientoDeFuego(Jugadores Player){
+            int Quemadura = (Damage * 2);
+            if(Estado !=true){
+                Console.WriteLine($"\n !!! -> Este monstuo ya está muerto. ({Nombre})");
+                return;
+            }
+            
+            if(Player==null){
+                Console.WriteLine("\n !!! -> No existe el jugador objetivo.");
+                return;
+            }
+            if(Player.Salud <= Quemadura){
+                Console.WriteLine("\n !!! -> "+ Nombre + " Quemó con Aliento de Fuego a "+ Player.Nick + "Y le quitó una vida.");
+                Player.PerderVida();
+                //llamar perdida de vida
+            }else{
+                
+                Console.WriteLine("\n !!! -> "+ Nombre + " Quemó con Aliento de Fuego a "+ Player.Nick + " y redujo su salud en "+ Quemadura + " pts");
+                Player.PerderSalud(Quemadura);
+                //llamar perdida de salud            
+            }
+        }
+    }
+
+
     public class Juego(){
         public static void Main(){
             Console.WriteLine("\n !!! -> Ingrese en nombre de jugador.");
             string nombre = Console.ReadLine();
             if(nombre == null){nombre="Nombre generico";}
-            Jugadores Alex = new Jugadores(nombre);
-            Monsters MLobo = new Monsters("Lobo");
-            Monsters MGolem = new Monsters("Golem");
+            Jugadores Player = new Jugadores(nombre);
+            Monsters MLobo = new Lobo("Lobo");
+            Monsters MGolem = new Golem("Golem");
 
             //aqui va un menu pero pus no alcance :(
 
             // Alex: Todos ustedes contra mi solo.
-            Alex.Atacar(MLobo);
-            MLobo.Attack(Alex);
-            MGolem.Attack(Alex);
+            Player.Atacar(MLobo);
+            MLobo.Attack(Player);
+            MGolem.Attack(Player);
 
         }
     }
