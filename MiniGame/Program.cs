@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace minigame{
     public class Jugadores{
+        //Atributos basicos de jugador
         public string Nick;
         public int Vidas;
         public int Lvl;
@@ -12,6 +13,12 @@ namespace minigame{
         public int ExpNextLvl;
         public int Salud;
         public bool Estado;
+        public int Mana;
+
+        // Atributos dinamiscos y editables por el jugador, inventario y equipamiento.
+        public List<Items> Inventario;
+        public Dictionary<string, Items> Equipamiento { get; set; }
+
 
         public Jugadores(string Nombre){
             Nick = Nombre;
@@ -21,6 +28,17 @@ namespace minigame{
             Exp=0;
             ExpNextLvl= 100;
             Estado = true;
+
+            Inventario = new List<Items>();
+            Equipamiento = new Dictionary<string, Items>
+            {
+                {"Casco", null},
+               {"Peto", null},
+                {"Grevas", null},
+                {"Botas", null},
+                {"Espada", null},
+                {"Escudo", null}
+            };
         }
 
         /// Metodos
