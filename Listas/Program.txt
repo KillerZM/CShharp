@@ -1,0 +1,23 @@
+﻿using System.Collections.Generic;
+using System;
+
+class Program{
+    static void Main(string[] args){
+        // Crear lista
+        List<int> numeros = new List<int>();
+        //Añadir elementos a la lista
+        numeros.Add(1);
+        numeros.Add(2);
+        numeros.Add(3);
+        //Mostrar los elementos de la Lista
+        foreach(int numero in numeros){
+            Console.WriteLine(numero);
+        } 
+        // Remover el 3
+        Console.WriteLine("\n");
+        numeros.RemoveAt(2);
+        foreach(int numero in numeros){
+            Console.WriteLine(numero);
+        }
+    }
+}

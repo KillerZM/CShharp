@@ -1,0 +1,15 @@
+/workspaces/CShharp/Listas/bin/Debug/net8.0/Listas
+/workspaces/CShharp/Listas/bin/Debug/net8.0/Listas.deps.json
+/workspaces/CShharp/Listas/bin/Debug/net8.0/Listas.runtimeconfig.json
+/workspaces/CShharp/Listas/bin/Debug/net8.0/Listas.dll
+/workspaces/CShharp/Listas/bin/Debug/net8.0/Listas.pdb
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.AssemblyInfoInputs.cache
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.AssemblyInfo.cs
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.sourcelink.json
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.dll
+/workspaces/CShharp/Listas/obj/Debug/net8.0/refint/Listas.dll
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.pdb
+/workspaces/CShharp/Listas/obj/Debug/net8.0/Listas.genruntimeconfig.cache
+/workspaces/CShharp/Listas/obj/Debug/net8.0/ref/Listas.dll
