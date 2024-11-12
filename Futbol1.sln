@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniGame", "MiniGame\MiniGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubClasesEjercicio", "SubClasesEjercicio\SubClasesEjercicio.csproj", "{5AD86681-EA16-4A83-9A65-377F97003DCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonBS", "DungeonBS\DungeonBS.csproj", "{4CE7F1CE-353E-45F6-BA9A-A1EA8131A78B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{5AD86681-EA16-4A83-9A65-377F97003DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AD86681-EA16-4A83-9A65-377F97003DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AD86681-EA16-4A83-9A65-377F97003DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE7F1CE-353E-45F6-BA9A-A1EA8131A78B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE7F1CE-353E-45F6-BA9A-A1EA8131A78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE7F1CE-353E-45F6-BA9A-A1EA8131A78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE7F1CE-353E-45F6-BA9A-A1EA8131A78B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
