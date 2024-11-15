@@ -1,0 +1,14 @@
+﻿using System;
+
+class Hola{
+    static void Main(string[] args){
+        try{
+            int Divisor = 1;
+            int Dividendo =10;
+            int resultado= Dividendo/Divisor;
+        }
+        catch(DivideByZeroException ex){
+            Console.WriteLine("Error: No se puede dividir entre cero.");
+        }
+    }
+}

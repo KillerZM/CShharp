@@ -1,0 +1,15 @@
+/workspaces/CShharp/Excepsiones/bin/Debug/net8.0/Excepsiones
+/workspaces/CShharp/Excepsiones/bin/Debug/net8.0/Excepsiones.deps.json
+/workspaces/CShharp/Excepsiones/bin/Debug/net8.0/Excepsiones.runtimeconfig.json
+/workspaces/CShharp/Excepsiones/bin/Debug/net8.0/Excepsiones.dll
+/workspaces/CShharp/Excepsiones/bin/Debug/net8.0/Excepsiones.pdb
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.AssemblyInfoInputs.cache
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.AssemblyInfo.cs
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.sourcelink.json
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.dll
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/refint/Excepsiones.dll
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.pdb
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/Excepsiones.genruntimeconfig.cache
+/workspaces/CShharp/Excepsiones/obj/Debug/net8.0/ref/Excepsiones.dll
