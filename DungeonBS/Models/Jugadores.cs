@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using DungeonBS.Abilities;
 
 
@@ -21,7 +22,7 @@ namespace DungeonBS.Models {
     public int MagicDamage{get; private set; }
     public int Armor { get; private set; }
     public int MagicResistance { get; private set; }
-
+    
     // Atributos dinámicos y editables por el jugador, inventario y equipamiento.
     public List<Items> Inventario { get; private set; }
     public List<Effects> Efectos { get; private set; }
@@ -50,10 +51,7 @@ namespace DungeonBS.Models {
         Inventario = new List<Items>();
         Equipamiento = new Dictionary<string, Items>
         {
-            {"Casco", null},
-            {"Peto", null},
-            {"Grevas", null},
-            {"Botas", null},
+            {"Armadura", null},
             {"Espada", null},
             {"Escudo", null}
         };
@@ -108,7 +106,20 @@ namespace DungeonBS.Models {
             if(Objetivo == null){
                 return;
             }
-            Objetivo.RecibirDmg((Lvl+1)*20, this);
+            Items Espada;
+            //Buscar espada en el diccionario de equipamiento, si no se encuentra se establece como null
+            try {
+                Espada = Equipamiento["Espada"];
+                //Console.WriteLine($"Encontrado: {item.Name}, Valor: {item.Value}");
+            } catch (KeyNotFoundException) {
+                Espada = null;
+                //Console.WriteLine("El objeto no se encuentra en el diccionario.");
+            } catch (NullReferenceException){
+                Espada = null;    //
+            }
+
+
+            //La del proceso Objetivo.RecibirDmg((Lvl+1)*20, this);
         }
         public void PerderSalud(int dmg){
             if(dmg <= 0){

@@ -1,4 +1,5 @@
 using System;
+using System.Reflection.Emit;
 using DungeonBS.Models;
 
 namespace DungeonBS.Controllers
@@ -7,13 +8,26 @@ namespace DungeonBS.Controllers
     {
         public void IniciarJuego()
         {
+            int UwU = 0;
+            string Nombre = "Hero";
+            while(UwU != 1){
+
+            
+            try{
             Console.WriteLine("\n !!! -> Ingrese el nombre del jugador.");
-            string nombre = Console.ReadLine();
-            if (string.IsNullOrEmpty(nombre))
+            Nombre = Console.ReadLine();
+            if (string.IsNullOrEmpty(Nombre))
             {
-                nombre = "Hero";
+                Nombre = "Hero";
             }
-            Jugadores player = new Jugadores(nombre);
+            UwU =1;
+            }
+            catch(FormatException){
+                UwU =0;
+                Console.WriteLine($"El Nombre debe ser Letras y Numeros, evita dejarlo vacio");
+            }
+        }
+            Jugadores player = new Jugadores(Nombre);
             Monsters lobo = new Lobo("Lobo");
             Monsters golem = new Golem("Golem");
 
