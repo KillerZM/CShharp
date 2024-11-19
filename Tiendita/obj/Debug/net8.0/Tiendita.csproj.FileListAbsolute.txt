@@ -1,0 +1,15 @@
+/workspaces/CShharp/Tiendita/bin/Debug/net8.0/Tiendita
+/workspaces/CShharp/Tiendita/bin/Debug/net8.0/Tiendita.deps.json
+/workspaces/CShharp/Tiendita/bin/Debug/net8.0/Tiendita.runtimeconfig.json
+/workspaces/CShharp/Tiendita/bin/Debug/net8.0/Tiendita.dll
+/workspaces/CShharp/Tiendita/bin/Debug/net8.0/Tiendita.pdb
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.AssemblyInfoInputs.cache
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.AssemblyInfo.cs
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.sourcelink.json
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.dll
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/refint/Tiendita.dll
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.pdb
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/Tiendita.genruntimeconfig.cache
+/workspaces/CShharp/Tiendita/obj/Debug/net8.0/ref/Tiendita.dll

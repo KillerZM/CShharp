@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("DungeonBS")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Tiendita")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd5b8d88e4940cde46f897a442bfed5909a79092")]
-[assembly: System.Reflection.AssemblyProductAttribute("DungeonBS")]
-[assembly: System.Reflection.AssemblyTitleAttribute("DungeonBS")]
+[assembly: System.Reflection.AssemblyProductAttribute("Tiendita")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Tiendita")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
