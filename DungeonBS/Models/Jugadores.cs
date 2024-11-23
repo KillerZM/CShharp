@@ -13,27 +13,28 @@ namespace DungeonBS.Models {
     public int Lvl { get; private set; }
     public int Exp { get; private set; }
     public int ExpNextLvl { get; private set; }
-    public int Salud { get; private set; }
+    public int Salud { get; set; }
     public int MaxSalud{get; private set;}
-    public bool Estado { get; private set; }
-    public int Mana { get; private set; }
+    public bool Estado { get; set; }
+    public int Mana { get; set; }
     public int MaxMana { get; private set; }
-    public int Damage {get; private set; }
-    public int MagicDamage{get; private set; }
+    public int Damage {get; set; }
+    public int MagicDamage{get; set; }
     public int Armor { get; private set; }
     public int MagicResistance { get; private set; }
+    public int Gold { get; private set; }
     
     // Atributos dinámicos y editables por el jugador, inventario y equipamiento.
-    public List<Items> Inventario { get; private set; }
-    public List<Effects> Efectos { get; private set; }
-    public List<Skills> Habilidades { get; private set; }
-    public Dictionary<string, Items> Equipamiento { get; private set; }
+    public List<Items> Inventario { get; set; }
+
+    public List<Skills> Habilidades { get;  set; }
+    public Dictionary<string, Items> Equipamiento { get; set; }
 
     public Jugadores(string nombre)
     {
         //Atributos basicos de identidad
         Nick = nombre;
-        Vidas = 2;
+        Vidas = 3;
         MaxSalud = 100;
         Salud= MaxSalud;
         Lvl = 0;
@@ -45,7 +46,7 @@ namespace DungeonBS.Models {
         MagicDamage = 5;
         MaxMana = 100;
         Mana = MaxMana;
-        Armor = 10;
+        Armor = 15;
         MagicResistance= 5;
         //Atributos Dinamicos Inventario, habilidades ,equipamiento y efectos
         Inventario = new List<Items>();
@@ -62,6 +63,8 @@ namespace DungeonBS.Models {
         public void SubirEXP(int Exp){
             if (Exp <= 0) return;
 
+            Console.WriteLine($"\n ->[{this.Exp+Exp}/{this.ExpNextLvl}]]{Nick} + [{Exp}]Xp. ]");
+
             this.Exp += Exp;
             while (this.Exp >= this.ExpNextLvl)
             {
@@ -73,14 +76,25 @@ namespace DungeonBS.Models {
                 Console.WriteLine($"\n -> El jugador: {Nick} subió a nivel {Lvl}.");
 
                 // Desbloqueos de habilidades con el nivel específico
-                if (Lvl == 5)
+                if (Lvl == 3)
                 {
                     Console.WriteLine($"-> Felicidades {Nick}, alcanzaste el nivel 5 y desbloqueaste la habilidad 'Golpe Crítico'.");
+                    Skills critico = new GolpeCritico();
+                    Habilidades.Add(critico);
                     // Aquí agregar el llamado al método de añadir habilidad.
                 }
-                if (Lvl == 10)
+                if (Lvl == 5)
                 {
-                    Console.WriteLine($"-> Felicidades {Nick}, alcanzaste el nivel 10 y desbloqueaste la habilidad 'Defensa Activa'.");
+                    Console.WriteLine($"-> Felicidades {Nick}, alcanzaste el nivel 10 y desbloqueaste la habilidad 'Coraje'.");
+                    Skills coraje = new Coraje();
+                    Habilidades.Add(coraje);
+                    // Aquí agregar el llamado al método de añadir habilidad.
+                }
+                if (Lvl == 8)
+                {
+                    Console.WriteLine($"-> Felicidades {Nick}, alcanzaste el nivel 10 y desbloqueaste la habilidad 'Coraje'.");
+                    Skills coraje = new BolaDeFuego();
+                    Habilidades.Add(coraje);
                     // Aquí agregar el llamado al método de añadir habilidad.
                 }
 
@@ -98,12 +112,13 @@ namespace DungeonBS.Models {
 
                 ExpNextLvl = (3 * ExpNextLvl) / 2;
             }
-
-            Console.WriteLine($"-> El jugador {Nick} tiene [{this.Exp}] pts de experiencia.");
+//Se quito por molestia al jugar :)
+            //Console.WriteLine($"-> El jugador {Nick} tiene [{this.Exp}] pts de experiencia.");
         }
 
         public void Atacar(Monsters Objetivo){
             if(Objetivo == null){
+                Console.WriteLine("\n !!! -> No existe el objetivo.");
                 return;
             }
             Items Espada;
@@ -118,22 +133,70 @@ namespace DungeonBS.Models {
                 Espada = null;    //
             }
 
+            if (Espada is Sword sword)
+            {
+                Objetivo.RecibirDmg(Damage + sword.Dmg, this);
+            }
+            else
+            {
+                Objetivo.RecibirDmg(Damage, this);
+            }
 
             //La del proceso Objetivo.RecibirDmg((Lvl+1)*20, this);
         }
         public void PerderSalud(int dmg){
-            if(dmg <= 0){
-                Salud -= (dmg/ (Lvl+1));
+            if (dmg <= 0){ 
+                Console.WriteLine("-> Parece que no hizo ni cosquillas... ");
+                return;}
+            int newDmg;
+            if (this.Equipamiento["Escudo"] is Shield shield && shield != null){
+                 newDmg= (int)(dmg / (1 + ((shield.Armoring+Armor) / 100.0)));
             }else{
-                return;
+                newDmg = (int)(dmg / (1 + (Armor / 100.0)));
+            }
+            Console.WriteLine("\n !!! -> " + Nick + " recibió [" + newDmg + "] de daño");
+            if (newDmg >= Salud){
+                Console.WriteLine("\n !!! -> " + Nick + " murió.");
+                PerderVida();
+                Salud = 0;
+            }else{
+                Salud -= newDmg;
             }
         }
         public void PerderVida(){
             Vidas -= 1;
             if(Vidas <= 0){
-                Console.WriteLine("\n !!! -> "+Nick+" Murio.");
+                Console.WriteLine("\n !!! -> "+Nick+" Murio definitivamente, ni los dioses podran resucitarlo.");
                 Estado = false;
+            }else if(Vidas == 1){
+                Console.WriteLine("\n !!! -> "+Nick+" ha perdido una vida, pero aun puede seguir luchando una ultima vez.");
+            }else if(Vidas > 1){
+                Console.WriteLine("\n !!! -> "+Nick+" ha perdido una vida, pero aun le quedan "+Vidas+" vidas.");
             }
+        }
+    
+        public void GanarVidas(int vidas){
+            Vidas += vidas;
+            Console.WriteLine("\n !!! -> "+Nick+" ha ganado "+vidas+" vidas.");
+
+            Console.WriteLine("\n !!! -> Presiona cualquier tecla para continuar.");
+            Console.ReadKey();
+        }
+
+        public void GanarOro(int oro){
+            this.Gold += oro;
+            Console.WriteLine("\n !!! -> "+Nick+$" + {oro} de oro.");
+        }
+    public void UsarHabilidad(int indice, Monsters objetivo){
+        if(Habilidades.Count == 0){
+            Console.WriteLine("No tienes habilidades para usar.");
+            return;
+        }
+        if (indice < 0 || indice >= Habilidades.Count){
+             Console.WriteLine("Índice de habilidad no válido."); return; 
+            } 
+            Skills habilidad = Habilidades[indice]; 
+            habilidad.Usar(this, objetivo);
         }
     }
 }
