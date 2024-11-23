@@ -13,7 +13,7 @@ namespace DungeonBS.Models {
     public int Lvl { get; private set; }
     public int Exp { get; private set; }
     public int ExpNextLvl { get; private set; }
-    public int Salud { get; set; }
+    public int Salud { get; private set; }
     public int MaxSalud{get; private set;}
     public bool Estado { get; set; }
     public int Mana { get; set; }
@@ -115,7 +115,15 @@ namespace DungeonBS.Models {
 //Se quito por molestia al jugar :)
             //Console.WriteLine($"-> El jugador {Nick} tiene [{this.Exp}] pts de experiencia.");
         }
-
+        public void GanarSalud(int Salud){
+            if (Salud <= 0) return;
+            Console.WriteLine($"\n !!! -> {Nick} + [{Salud}] ♥].");
+            if (this.Salud + Salud >= MaxSalud){
+                this.Salud = MaxSalud;
+            }else{
+                this.Salud += Salud;
+            }
+        }
         public void Atacar(Monsters Objetivo){
             if(Objetivo == null){
                 Console.WriteLine("\n !!! -> No existe el objetivo.");
@@ -168,9 +176,14 @@ namespace DungeonBS.Models {
             if(Vidas <= 0){
                 Console.WriteLine("\n !!! -> "+Nick+" Murio definitivamente, ni los dioses podran resucitarlo.");
                 Estado = false;
+                Salud = 0;
             }else if(Vidas == 1){
+                Estado= true;
+                Salud = MaxSalud;
                 Console.WriteLine("\n !!! -> "+Nick+" ha perdido una vida, pero aun puede seguir luchando una ultima vez.");
             }else if(Vidas > 1){
+                Estado= true;
+                Salud = MaxSalud;
                 Console.WriteLine("\n !!! -> "+Nick+" ha perdido una vida, pero aun le quedan "+Vidas+" vidas.");
             }
         }

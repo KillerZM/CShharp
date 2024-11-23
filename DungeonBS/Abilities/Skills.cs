@@ -48,7 +48,7 @@ namespace DungeonBS.Abilities
             UsarHabilidad = (jugador, objetivo) =>
             {
                 jugador.Damage += 5;
-                jugador.Salud += 10; // Recupera un poco de salud
+                jugador.GanarSalud(10);// Recupera un poco de salud
                 Console.WriteLine($"{jugador.Nick} usa {Nombre}, aumentando su daño y recuperando salud.");
             };
         }

@@ -1,0 +1,5 @@
+/workspaces/CShharp/DungeonBS/publish/DungeonBS
+/workspaces/CShharp/DungeonBS/publish/DungeonBS.dll
+/workspaces/CShharp/DungeonBS/publish/DungeonBS.deps.json
+/workspaces/CShharp/DungeonBS/publish/DungeonBS.runtimeconfig.json
+/workspaces/CShharp/DungeonBS/publish/DungeonBS.pdb

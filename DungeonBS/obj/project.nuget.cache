@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H9QMll/+M3w=",
+  "dgSpecHash": "b9DN5BlxizU=",
   "success": true,
   "projectFilePath": "/workspaces/CShharp/DungeonBS/DungeonBS.csproj",
-  "expectedPackageFiles": [
-    "/home/codespace/.nuget/packages/microsoft.netcore.app.runtime.win-x64/8.0.8/microsoft.netcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/8.0.8/microsoft.aspnetcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.netcore.app.host.win-x64/8.0.8/microsoft.netcore.app.host.win-x64.8.0.8.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

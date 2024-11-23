@@ -56,7 +56,7 @@ namespace DungeonBS.Animations{
             {
                 Console.Clear();
                 Console.WriteLine(frame);
-                Thread.Sleep(200);
+                Thread.Sleep(500);
             }
         }
 
@@ -116,7 +116,7 @@ namespace DungeonBS.Animations{
             {
                 Console.Clear();
                 Console.WriteLine(frame);
-                Thread.Sleep(200);
+                Thread.Sleep(500);
             }
         }
         public static void AnGolem()
@@ -178,7 +178,7 @@ namespace DungeonBS.Animations{
             {
                 Console.Clear();
                 Console.WriteLine(frame);
-                Thread.Sleep(200);
+                Thread.Sleep(500);
             }
         }
     }

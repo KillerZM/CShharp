@@ -106,7 +106,7 @@ namespace DungeonBS.Models{
                 Lvl = 1;
             Nombre = Name;
             Salud = 20+(5*Lvl);
-            Damage = 25+(10*Lvl);
+            Damage = 10+(10*Lvl);
             Estado = true;
             Gold = 10 + (5 * Lvl);
             this.Lvl = Lvl;
@@ -119,7 +119,7 @@ namespace DungeonBS.Models{
         {
             Nombre = Name;
             Salud = 85 + (15 * Lvl);
-            Damage = 10+(5*Lvl);
+            Damage = 5+(5*Lvl);
             Estado = true;
             Gold = 20 + (8 * Lvl);
             this.Lvl = Lvl;
@@ -133,7 +133,7 @@ namespace DungeonBS.Models{
         {
             Nombre = Name;
             Salud = 100+(20*Lvl);
-            Damage = 40+(12*Lvl);
+            Damage = 20+(20*Lvl);
             Estado = true;
             Gold = 50 + (10 * Lvl);
             this.Lvl = Lvl;

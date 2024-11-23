@@ -1,0 +1,15 @@
+/workspaces/CShharp/DungeonBS/bin/Release/net8.0/DungeonBS
+/workspaces/CShharp/DungeonBS/bin/Release/net8.0/DungeonBS.deps.json
+/workspaces/CShharp/DungeonBS/bin/Release/net8.0/DungeonBS.runtimeconfig.json
+/workspaces/CShharp/DungeonBS/bin/Release/net8.0/DungeonBS.dll
+/workspaces/CShharp/DungeonBS/bin/Release/net8.0/DungeonBS.pdb
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.AssemblyInfoInputs.cache
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.AssemblyInfo.cs
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.sourcelink.json
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.dll
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/refint/DungeonBS.dll
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.pdb
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/DungeonBS.genruntimeconfig.cache
+/workspaces/CShharp/DungeonBS/obj/Release/net8.0/ref/DungeonBS.dll

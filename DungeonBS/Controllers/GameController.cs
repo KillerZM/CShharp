@@ -145,13 +145,13 @@ namespace DungeonBS.Controllers
             {   
                 Console.WriteLine("\n*--__ Monstruos en la Oleada __--*");
                 for (int i = 0; i < monstruos.Count; i++){
-                    Console.WriteLine($"{i + 1}. {monstruos[i].Nombre} - Salud: {monstruos[i].Salud}");
+                    Console.WriteLine($"{i + 1}. {monstruos[i].Nombre} - Salud [♥]: {monstruos[i].Salud}");
                 }  
                 bool correct=false;
                 int opcion=0;
                 while(correct==false){
                     try{
-                    Console.WriteLine("\nTurno del Jugador:");
+                    Console.WriteLine($"\nTurno del Jugador [{player.Salud} ♥]: ");
                     Console.WriteLine("1. Atacar");
                     Console.WriteLine("2. Usar Habilidad");
                     Console.WriteLine("3. Usar Poción");
@@ -169,21 +169,22 @@ namespace DungeonBS.Controllers
                         
                         Console.WriteLine("Seleccione el monstruo para atacar:");
                          for (int i = 0; i < monstruos.Count; i++){
-                             Console.WriteLine($"{i + 1}. {monstruos[i].Nombre} - Salud: {monstruos[i].Salud}");
+                             Console.WriteLine($"{i + 1}. {monstruos[i].Nombre} - Salud [♥]: {monstruos[i].Salud}");
                             }
                             bool temp=false;
                             while(temp==false){
                                 try{
                                     int indiceMonstruo = Convert.ToInt32(Console.ReadLine()) - 1; 
                                     if (indiceMonstruo >= 0 && indiceMonstruo < monstruos.Count){
-                                        player.Atacar(monstruos[indiceMonstruo]); 
                                         if(monstruos[indiceMonstruo] is Lobo){
                                             Animation.AnLobo();
                                             }else if(monstruos[indiceMonstruo] is Golem){
                                             Animation.AnGolem();
                                             }else if(monstruos[indiceMonstruo] is Dragon){
-                                            Animation.AnDragon();
-                                            }
+                                            Animation.AnDragon();}
+                                        player.Atacar(monstruos[indiceMonstruo]); 
+                                        
+                                            
                                         temp=true;
                                     }else{
                                     Console.WriteLine("!!! -> Índice de monstruo no válido.");
@@ -281,8 +282,7 @@ namespace DungeonBS.Controllers
                     }else{
                         Console.WriteLine("¡Has sido derrotado! Pero aún tienes vidas restantes.");
                         // Revivir al jugador y volver al menú sin reiniciar oleadas
-                        player.Salud = player.MaxSalud;
-                        player.Estado = true;
+                        player.PerderVida();
                         return;
                     }
     }
