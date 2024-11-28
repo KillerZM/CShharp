@@ -166,10 +166,11 @@ namespace DungeonBS.Models {
             if (newDmg >= Salud){
                 Console.WriteLine("\n !!! -> " + Nick + " murió.");
                 PerderVida();
-                Salud = 0;
             }else{
                 Salud -= newDmg;
             }
+
+
         }
         public void PerderVida(){
             Vidas -= 1;
@@ -200,7 +201,7 @@ namespace DungeonBS.Models {
             this.Gold += oro;
             Console.WriteLine("\n !!! -> "+Nick+$" + {oro} de oro.");
         }
-    public void UsarHabilidad(int indice, Monsters objetivo){
+        public void UsarHabilidad(int indice, Monsters objetivo){
         if(Habilidades.Count == 0){
             Console.WriteLine("No tienes habilidades para usar.");
             return;
@@ -211,6 +212,34 @@ namespace DungeonBS.Models {
             Skills habilidad = Habilidades[indice]; 
             habilidad.Usar(this, objetivo);
         }
+    
+        public bool Comprar(Items item){
+            if (item.Value > Gold){
+                //Console.WriteLine("!!! ->No tienes suficiente oro para comprar este objeto.");
+                return false;
+            }
+            Gold -= item.Value;
+            Inventario.Add(item);
+            //Se decidio quitar para que el mercader se encargue de esos dialogos.
+            //Console.WriteLine($"!!! ->Objeto comprado con éxito por [{item.Value}] de oro.");
+            return true;
+        }
+        public void Vender(Items item){
+            if (Inventario.Contains(item)){
+                int oroVenta = (item.Value * 2) / 3;
+                Gold += oroVenta;
+                Inventario.Remove(item);
+                Console.WriteLine($"!!! -> Objeto vendido con éxito por [{oroVenta}] de oro.");
+            }else{
+                Console.WriteLine($"!!! -> No tienes este objeto en tu inventario. (acaso quieres vender la nada?)");
+            }
+        }
+
+
     }
+
+        // metodos de interaccion con inventario y mercado
+
+        
 }
 

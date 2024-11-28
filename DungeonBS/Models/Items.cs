@@ -29,7 +29,7 @@ namespace DungeonBS.Models
         public HealthPotion()
         {
             Name = "Health Potion";
-            Value = 50;
+            Value = 30;
             Type = ItemType.Potion;
             Healing = 30;
         }
@@ -42,7 +42,7 @@ namespace DungeonBS.Models
         public ManaPotion()
         {
             Name = "Mana Potion";
-            Value = 50;
+            Value = 20;
             Type = ItemType.Potion;
             ManaRestored = 50;
         }
