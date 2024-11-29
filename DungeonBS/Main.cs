@@ -12,7 +12,7 @@ namespace DungeonBS
             Console.WriteLine("Programa finalizado. Presiona cualquier tecla para salir..."); 
             Console.ReadLine();
             } catch (Exception ex)
-            { Console.WriteLine($"Se produjo un error: {ex.Message}"); Console.ReadKey(); // Espera a que el usuario presione una tecla antes de cerrar }
+            { Console.WriteLine($"Se produjo un error: {ex.Message}"); Console.ReadLine(); // Espera a que el usuario presione una tecla antes de cerrar }
         }
 
     }

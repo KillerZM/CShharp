@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Numerics;
 using DungeonBS.Abilities;
 
@@ -29,7 +30,7 @@ namespace DungeonBS.Models {
 
     public List<Skills> Habilidades { get;  set; }
     public Dictionary<string, Items> Equipamiento { get; set; }
-
+// Constructor
     public Jugadores(string nombre)
     {
         //Atributos basicos de identidad
@@ -41,13 +42,14 @@ namespace DungeonBS.Models {
         Exp = 0;
         ExpNextLvl = 100;
         Estado = true;
+        Gold = 100;
         //Atributos de Combate
         Damage = 10;
         MagicDamage = 5;
         MaxMana = 100;
         Mana = MaxMana;
         Armor = 15;
-        MagicResistance= 5;
+        MagicResistance= 10;
         //Atributos Dinamicos Inventario, habilidades ,equipamiento y efectos
         Inventario = new List<Items>();
         Equipamiento = new Dictionary<string, Items>
@@ -56,6 +58,17 @@ namespace DungeonBS.Models {
             {"Espada", null},
             {"Escudo", null}
         };
+        Habilidades = new List<Skills>();
+        // se le daran 2 pociones al iniciar el juego
+        Inventario.Add(new HealthPotion());
+        Inventario.Add(new HealthPotion());
+        Inventario.Add(new ManaPotion());
+    }
+// Destructor
+    ~Jugadores()
+    {
+        // Código para liberar recursos no administrados
+        Console.WriteLine($"Diosito se llevo a {Nick}. [Destructor]");
     }
 
     // Métodos de jugador...
@@ -78,7 +91,7 @@ namespace DungeonBS.Models {
                 // Desbloqueos de habilidades con el nivel específico
                 if (Lvl == 3)
                 {
-                    Console.WriteLine($"-> Felicidades {Nick}, alcanzaste el nivel 5 y desbloqueaste la habilidad 'Golpe Crítico'.");
+                    Console.WriteLine($"-> Felicidades {Nick}, alcanzaste el nivel 3 y desbloqueaste la habilidad 'Golpe Crítico'.");
                     Skills critico = new GolpeCritico();
                     Habilidades.Add(critico);
                     // Aquí agregar el llamado al método de añadir habilidad.
@@ -124,7 +137,24 @@ namespace DungeonBS.Models {
                 this.Salud += Salud;
             }
         }
+        public void GanarMana(int Mana){
+            if (Mana <= 0) return;
+            Console.WriteLine($"\n !!! -> {Nick} + [{Mana}] 🌢].");
+            if (this.Mana + Mana >= MaxMana){
+                this.Mana = MaxMana;
+            }else{
+                this.Mana += Mana;
+            }
+        }
         public void Atacar(Monsters Objetivo){
+            Random rnd = new Random();
+            bool critico = false;
+            //Calculara una posibilidad de critico de un 20 %
+            int CritBase = rnd.Next(1,11);
+            if(CritBase == 1 || CritBase == 10){
+                critico = true;
+            }
+            //Calculara una posibilidad de critico de un 25 %
             if(Objetivo == null){
                 Console.WriteLine("\n !!! -> No existe el objetivo.");
                 return;
@@ -142,12 +172,28 @@ namespace DungeonBS.Models {
             }
 
             if (Espada is Sword sword)
-            {
-                Objetivo.RecibirDmg(Damage + sword.Dmg, this);
+            {   
+                if(critico){
+                    Console.WriteLine("\n !!! -> "+Nick+" ha realizado un golpe crítico a "+Objetivo.Nombre+" con su espada.");
+                    Objetivo.RecibirDmg(((Damage + sword.Dmg)*9)/4, this);
+                }else{
+                    // al tener la espada recastea una probabilidad adicional de critico
+                    int CritBase2 = rnd.Next(1,6);
+                    if(CritBase2 == 3){
+                        Console.WriteLine("\n !!! -> "+Nick+" ha realizado un golpe crítico de espada a "+Objetivo.Nombre+".");
+                        Objetivo.RecibirDmg(((Damage + sword.Dmg)*7)/5, this);
+                    }else{
+                        Console.WriteLine("\n !!! -> "+Nick+" ha atacado a "+Objetivo.Nombre + " con su espada.");
+                        Objetivo.RecibirDmg(Damage + sword.Dmg, this);}
+                }
             }
             else
-            {
+            {   if(critico){
+                    Console.WriteLine("\n !!! -> "+Nick+" ha realizado un golpe crítico.");
+                    Objetivo.RecibirDmg((Damage*7)/4, this);
+                }else{
                 Objetivo.RecibirDmg(Damage, this);
+                }
             }
 
             //La del proceso Objetivo.RecibirDmg((Lvl+1)*20, this);
@@ -158,9 +204,9 @@ namespace DungeonBS.Models {
                 return;}
             int newDmg;
             if (this.Equipamiento["Escudo"] is Shield shield && shield != null){
-                 newDmg= (int)(dmg / (1 + ((shield.Armoring+Armor) / 100.0)));
+                 newDmg= (int)(dmg / (1 + ((shield.Armoring+Armor) / 20.0)));
             }else{
-                newDmg = (int)(dmg / (1 + (Armor / 100.0)));
+                newDmg = (int)(dmg / (1 + (Armor / 20.0)));
             }
             Console.WriteLine("\n !!! -> " + Nick + " recibió [" + newDmg + "] de daño");
             if (newDmg >= Salud){
@@ -212,7 +258,10 @@ namespace DungeonBS.Models {
             Skills habilidad = Habilidades[indice]; 
             habilidad.Usar(this, objetivo);
         }
-    
+        public int getOro(){
+            return Gold;
+        }
+// Metodos de mercado
         public bool Comprar(Items item){
             if (item.Value > Gold){
                 //Console.WriteLine("!!! ->No tienes suficiente oro para comprar este objeto.");
@@ -224,22 +273,105 @@ namespace DungeonBS.Models {
             //Console.WriteLine($"!!! ->Objeto comprado con éxito por [{item.Value}] de oro.");
             return true;
         }
-        public void Vender(Items item){
+        public bool Vender(Items item){
             if (Inventario.Contains(item)){
                 int oroVenta = (item.Value * 2) / 3;
                 Gold += oroVenta;
                 Inventario.Remove(item);
-                Console.WriteLine($"!!! -> Objeto vendido con éxito por [{oroVenta}] de oro.");
+                //Console.WriteLine($"!!! -> Objeto vendido con éxito por [{oroVenta}] de oro.");
+                return true;
             }else{
-                Console.WriteLine($"!!! -> No tienes este objeto en tu inventario. (acaso quieres vender la nada?)");
+                //Console.WriteLine($"!!! -> No tienes este objeto en tu inventario. (acaso quieres vender la nada?)");
+                return false;
+            }
+        }
+// Metodos de inventario
+        public void Equipar(Items item){
+            if (Inventario.Contains(item)){
+                if (item is Armor armor){
+                    if (Equipamiento["Armadura"] != null){
+                        Inventario.Add(Equipamiento["Armadura"]);
+                    }
+                    Equipamiento["Armadura"] = item;
+                    Inventario.Remove(item);
+                    Armor += armor.Armoring;
+                    MagicResistance += armor.MagicResistance;
+                    MaxSalud += armor.AddHealth;
+                    Salud += armor.AddHealth;
+                    Console.WriteLine($"!!! -> {Nick} equipó [{item.Name}].");
+                }
+                else if (item is Sword sword){
+                    if (Equipamiento["Espada"] != null){
+                        Inventario.Add(Equipamiento["Espada"]);
+                    }
+                    Equipamiento["Espada"] = item;
+                    Inventario.Remove(item);
+                    //Damage += sword.Dmg;
+                    Console.WriteLine($"!!! -> {Nick} equipó [{item.Name}].");
+                }
+                else if (item is Shield shield){
+                    if (Equipamiento["Escudo"] != null){
+                        Inventario.Add(Equipamiento["Escudo"]);
+                    }
+                    Equipamiento["Escudo"] = item;
+                    Inventario.Remove(item);
+                    Console.WriteLine($"!!! -> {Nick} equipó [{item.Name}].");
+                }
+                else{
+                    Console.WriteLine("!!! -> No puedes equipar este objeto.");
+                }
+            }else{
+                Console.WriteLine("!!! -> No tienes este objeto en tu inventario.");
             }
         }
 
-
+        public void Desequipar(string tipo){
+            if (Equipamiento[tipo] != null){
+                Inventario.Add(Equipamiento[tipo]);
+                if (Equipamiento[tipo] is Armor armor){
+                    Armor -= armor.Armoring;
+                    MagicResistance -= armor.MagicResistance;
+                    MaxSalud -= armor.AddHealth;
+                    Salud -= armor.AddHealth;
+                    //En caso de que se quede con 0 de vida, se le asigna 1 para no morir
+                    if (Salud <= 0){
+                        Salud = 1;
+                    }
+                }
+                Equipamiento[tipo] = null;
+                Console.WriteLine($"!!! -> {Nick} desequipó [{tipo}].");
+            }else{
+                Console.WriteLine("!!! -> No tienes nada equipado en este slot.");
+            }
     }
 
+        public void UsarPocion(Items item){
+            if (item is HealthPotion healthPotion){
+                if (Salud == MaxSalud){
+                    Console.WriteLine("!!! -> Ya tienes la salud al máximo.");
+                    return;
+                }
+                if (Inventario.Contains(healthPotion)){
+                    Inventario.Remove(healthPotion);
+                    GanarSalud(healthPotion.Healing);
+                    Console.WriteLine($"!!! -> {Nick} usó una poción de salud.");
+                }else{
+                    Console.WriteLine("!!! -> No tienes esta poción en tu inventario.");
+                }
+            }
+            else if (item is ManaPotion manaPotion){
+                if (Mana == MaxMana){
+                    Console.WriteLine("!!! -> Ya tienes el maná al máximo.");
+                    return;
+                }else if( Inventario.Contains(manaPotion)){
+                    Inventario.Remove(manaPotion);
+                    GanarMana(manaPotion.ManaRestored);
+                    Console.WriteLine($"!!! -> {Nick} usó una poción de maná.");
+        }
+    }
         // metodos de interaccion con inventario y mercado
 
-        
+    }  
+}
 }
 

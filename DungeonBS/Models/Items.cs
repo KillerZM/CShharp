@@ -44,7 +44,7 @@ namespace DungeonBS.Models
             Name = "Mana Potion";
             Value = 20;
             Type = ItemType.Potion;
-            ManaRestored = 50;
+            ManaRestored = 20;
         }
     }
 
@@ -61,7 +61,7 @@ namespace DungeonBS.Models
         public IronArmor()
         {
             Name = "Iron Armor";
-            Value = 200;
+            Value = 100;
             Type = ItemType.Armor;
             Armoring = 20;
             MagicResistance = 0;
@@ -74,7 +74,7 @@ namespace DungeonBS.Models
         public BarionArmor()
         {
             Name = "Barion Armor";
-            Value = 500;
+            Value = 200;
             Type = ItemType.Armor;
             Armoring = 30;
             MagicResistance = 5;
@@ -87,7 +87,7 @@ namespace DungeonBS.Models
         public DiamondArmor()
         {
             Name = "Diamond Armor";
-            Value = 800;
+            Value = 400;
             Type = ItemType.Armor;
             Armoring = 40;
             MagicResistance = 10;
@@ -106,7 +106,7 @@ namespace DungeonBS.Models
         public IronSword()
         {
             Name = "Iron Sword";
-            Value = 100;
+            Value = 50;
             Type = ItemType.Sword;
             Dmg = 5;
         }
@@ -117,7 +117,7 @@ namespace DungeonBS.Models
         public BarionSword()
         {
             Name = "Barion Sword";
-            Value = 300;
+            Value = 150;
             Type = ItemType.Sword;
             Dmg = 6;
         }
@@ -128,7 +128,7 @@ namespace DungeonBS.Models
         public DiamondSword()
         {
             Name = "Diamond Sword";
-            Value = 500;
+            Value = 250;
             Type = ItemType.Sword;
             Dmg = 8;
         }
@@ -146,7 +146,7 @@ namespace DungeonBS.Models
         public WoodenShield()
         {
             Name = "Wooden Shield";
-            Value = 50;
+            Value = 100;
             Type = ItemType.Shield;
             Armoring = 10;
             MagicResistance = 10;
