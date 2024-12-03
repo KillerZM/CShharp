@@ -74,7 +74,7 @@ namespace DungeonBS.Models{
                         Console.WriteLine("\n !!! -> :( No se pudo obtener el alma del "+ Nombre);
                     }else{
                         Console.WriteLine("\n !!! -> :) Se obtuvo el alma del "+ Nombre + $",{Player.Nick}(Presiona para consolidar el alma)");
-                        Console.ReadLine();
+                        //Console.ReadLine();
                         Player.SubirEXP(10*vidasextra);
                         Player.GanarVidas(vidasextra);
                     }

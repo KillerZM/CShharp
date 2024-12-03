@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Ejercicio1Ex/1.0.0": {
+        "runtime": {
+          "Ejercicio1Ex.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ejercicio1Ex/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

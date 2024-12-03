@@ -1,0 +1,15 @@
+/workspaces/CShharp/Ejercicio2Ex/bin/Debug/net8.0/Ejercicio2Ex
+/workspaces/CShharp/Ejercicio2Ex/bin/Debug/net8.0/Ejercicio2Ex.deps.json
+/workspaces/CShharp/Ejercicio2Ex/bin/Debug/net8.0/Ejercicio2Ex.runtimeconfig.json
+/workspaces/CShharp/Ejercicio2Ex/bin/Debug/net8.0/Ejercicio2Ex.dll
+/workspaces/CShharp/Ejercicio2Ex/bin/Debug/net8.0/Ejercicio2Ex.pdb
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.AssemblyInfoInputs.cache
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.AssemblyInfo.cs
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.csproj.CoreCompileInputs.cache
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.sourcelink.json
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.dll
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/refint/Ejercicio2Ex.dll
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.pdb
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/Ejercicio2Ex.genruntimeconfig.cache
+/workspaces/CShharp/Ejercicio2Ex/obj/Debug/net8.0/ref/Ejercicio2Ex.dll
